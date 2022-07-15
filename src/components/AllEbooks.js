@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ebookAction from "../service/ebook.service";
 import TableContent from "./TableContent";
 
-export default function BrowseCollection() {
+export default function AllEbooks() {
   const [ebooks, setEbooks] = useState([]);
 
   useEffect(async () => {
