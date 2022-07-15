@@ -3,8 +3,7 @@ import "./App.css";
 import AllEbooks from "./components/AllEbooks";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import NotFound from "./components/NotFound";
-import UnderConstructionMessage from "./components/UnderConstructionMessage";
+import UnderconstructionPage from "./components/UnderconstructionPage";
 import HomePage from "./HomePage";
 
 function App() {
@@ -13,9 +12,8 @@ function App() {
       <Nav />
       <Routes>
         <Route exact path="/collections" element={<AllEbooks />} />
-        <Route exact path="/fake" element={<UnderConstructionMessage />} />
+        <Route exact path="/fake" element={<UnderconstructionPage />} />
         <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

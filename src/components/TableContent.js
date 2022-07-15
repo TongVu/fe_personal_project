@@ -1,4 +1,40 @@
-export default function TableContent({ ebooks }) {
+import { useEffect, useState } from "react";
+import ebookAction from "../service/ebook.service";
+
+export default function TableContent() {
+  const [ebooks, setEbooks] = useState([]);
+
+  async function getBooks() {
+    try {
+      const books = await ebookAction.getAll();
+      console.log(books.data);
+      setEbooks(books.data);
+      console.log(ebooks);
+    } catch (err) {
+      console.log("Error: " + err);
+    }
+  }
+
+  useEffect(() => {
+    getBooks();
+  }, []);
+
+  function deleteBookId(id) {
+    try {
+      ebookAction.remove(id);
+      console.log("delete successfully");
+    } catch (err) {
+      console.log("Error: " + err);
+    }
+  }
+
+  function deleteBook(id) {
+    console.log(id);
+    deleteBookId(id);
+    setEbooks([...ebooks.filter((ebook) => ebook.id !== id)]);
+    // getBooks();
+  }
+
   return (
     <>
       <table className="table table-striped">
@@ -36,7 +72,12 @@ export default function TableContent({ ebooks }) {
                   <i className="fa fa-pencil" aria-hidden="true"></i>
                 </button>
                 <button type="button" className="btn btn-danger mx-2">
-                  <i className="fa fa-trash" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-trash"
+                    aria-hidden="true"
+                    id={ebook.id}
+                    onClick={(e) => deleteBook(ebook.id)}
+                  ></i>
                 </button>
               </td>
             </tr>
