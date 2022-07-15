@@ -1,0 +1,8 @@
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    padding: 15px;
+    text-align: center;
+}

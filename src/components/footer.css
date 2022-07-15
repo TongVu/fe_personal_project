@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+
+.footer-flex{
+    position: relative;
+    width: 100vw;
+    bottom: 0;
+    background-color: antiquewhite;
+    height: 3rem;
+}
+
+.footer-flex,
+.footer-icons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-icons i{
+    margin: 0 15px;
+}
+
