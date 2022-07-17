@@ -12,8 +12,8 @@ const get = (id) => {
   return httpClient.get(`/ebooks/${id}`);
 };
 
-const update = (data) => {
-  return httpClient.put("/ebooks", data);
+const update = (id, data) => {
+  return httpClient.put(`/ebooks/${id}`, data);
 };
 
 const remove = (id) => {
